@@ -6,7 +6,7 @@ import selfImage from "../images/selfImage.jpg";
 const Introduction = () => {
   return (
     <section className="flex flex-row">
-      <div className="m-16 flex flex-col sm:w-3/5">
+      <div className="p-16 flex flex-col sm:w-3/5">
         <div className="text-black w-full">
           <h3 className="text-2xl">Hello, I am</h3>
           <h1 className="text-4xl">Arpan</h1>
