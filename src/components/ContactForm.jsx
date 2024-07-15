@@ -80,7 +80,7 @@ const ContactForm = () => {
             rows="8"
             cols="77"
             value={formData["message"] ? formData["message"] : ""}
-            className="border-2 border-s-fuchsia-100 rounded-lg p-3 shadow-lg"
+            className="border-2 border-tertiary rounded-lg p-3 shadow-lg"
             onChange={onChangeHandler}
             error={response?.errors}
           ></textarea>

@@ -2,7 +2,7 @@ import NavbarItems from "./NavbarItems";
 
 
 const Navbar = () =>{
-  const items = ["Home", "Testimonial", "About"]
+  const items = [["Home", "/"], ["Testimonial", "/testimonial"], ["About", "/about"]]
   return (
     <header className="sm:px-36 z-10 shadow-lg py-4 bg-secondary text-white flex sm:flex-row sm:gap-[700px] ">
       <h2 className="text-2xl">Portfolio</h2>
