@@ -2,8 +2,24 @@ import React from "react";
 import SocialIcons from "./SocialIcons";
 import Button from "./Button";
 import selfImage from "../images/selfImage.jpg";
+import portFolioApi from "../api/portfolioApi";
 
 const Introduction = () => {
+  const downloadCV = () => {
+    portFolioApi
+      .get("/download_cv", { responseType: "blob" })
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.style.display = "none";
+        link.href = url;
+        link.setAttribute("download", "arpan_goswami_CV_24_rails.pdf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      });
+  };
   return (
     <section className="flex flex-row">
       <div className="p-16 flex flex-col sm:w-3/5">
@@ -21,11 +37,15 @@ const Introduction = () => {
         </div>
         <SocialIcons />
         <div className="flex flex-row justify-center">
-          <Button>Download CV</Button>
+          <Button onClick={downloadCV}>Download CV</Button>
         </div>
       </div>
       <div className="sm:w-2/5 bg-secondary justify-center items-center flex rounded-l-full">
-        <img src={selfImage} className="w-44 rounded-full border-2 border-orange-500" alt="self" />
+        <img
+          src={selfImage}
+          className="w-44 rounded-full border-2 border-orange-500"
+          alt="self"
+        />
       </div>
     </section>
   );

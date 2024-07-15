@@ -7,7 +7,6 @@ import portFolioApi from "../api/portfolioApi";
 const ContactForm = () => {
   const [formData, setFromData] = useState({});
   const [response, setResponse] = useState(null);
-  console.log(response);
 
   const onChangeHandler = (event) => {
     setFromData((prevFormData) => {
@@ -22,13 +21,12 @@ const ContactForm = () => {
     event.preventDefault();
     // const formData = Object.fromEntries((new FormData(event.target).entries()));
     portFolioApi
-      .post("/visitor", formData)
+      .post("/visitors", formData)
       .then((res) => {
         setFromData({});
         setResponse(res.data);
       })
       .catch((error) => {
-        console.log(error);
         setResponse(error.response.data);
       });
   };
@@ -103,7 +101,7 @@ const ContactForm = () => {
           </div>
         )}
         <div className="flex justify-center">
-          <Button extraProps="text-white">Send Message</Button>
+          <Button styleProps="text-white">Send Message</Button>
         </div>
       </form>
     </section>
