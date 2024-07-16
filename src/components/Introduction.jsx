@@ -43,7 +43,7 @@ const Introduction = () => {
       <div className="sm:w-2/5 bg-secondary justify-center items-center flex rounded-l-full">
         <img
           src={selfImage}
-          className="w-44 rounded-full border-2 border-orange-500"
+          className="w-44 rounded-full border-2 border-tertiary"
           alt="self"
         />
       </div>
