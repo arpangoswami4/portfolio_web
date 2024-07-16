@@ -9,8 +9,9 @@ const NavbarItems = ({ items }) => {
             to={item[1]}
             key={item[0]}
             className={({ isActive }) => {
-              let navStyle = isActive ? "underline underline-offset-8 decoration-tertiary decoration-2" : "";
-              navStyle += "hover:" + navStyle;
+              const underlineStyle = "underline underline-offset-8 decoration-tertiary decoration-2"
+              let navStyle = isActive ? underlineStyle : "";
+              navStyle += " hover:" + underlineStyle;
               return navStyle;
             }}
             end
