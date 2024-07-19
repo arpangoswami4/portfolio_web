@@ -10,6 +10,10 @@ const portFolioApi = axios.create({
 portFolioApi.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${API_KEY}`;
   config.data = camelToSnakeCaseKeys(config.data);
+  if (config.data["avatar"] && config.data["avatar"].length !== 0 ) {
+    config.data["avatar"] = config.data["avatar"][0]["file"];
+    config.headers["Content-Type"] = "multipart/form-data";
+  }
   return config;
 });
 
