@@ -20,7 +20,7 @@ const Skills = () => {
       <h3 className="text-3xl text-black text-center mb-6">My Skills:</h3>
       <div className="flex flex-col sm:flex-row gap-4 w-full m-auto justify-center">
         {skillIcons.map((iconItem) => (
-          <SkillIcon iconItem={iconItem} />
+          <SkillIcon key={iconItem[1]} iconItem={iconItem} />
         ))}
       </div>
     </section>
