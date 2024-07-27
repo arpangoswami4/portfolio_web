@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="text-white">
+    <div className="text-white relative min-h-screen flex flex-col">
       <Navbar />
       <section className="z-0">
         <Layout />
