@@ -5,7 +5,7 @@ import portFolioApi from "../api/portfolioApi";
 import { Dropzone, FileMosaic } from "@files-ui/react";
 import Button from "./Button";
 
-const TestimonialForm = ({ setFormFlag }) => {
+const TestimonialForm = ({ setFormFlag, setSuccess }) => {
   const [formData, setFromData] = useState({ avatar: [] });
   const [response, setResponse] = useState(null);
 
@@ -33,15 +33,15 @@ const TestimonialForm = ({ setFormFlag }) => {
       .post("/testimonials", formData)
       .then((res) => {
         setFormFlag(false);
-        setFromData({avatar: []});
+        setFromData({ avatar: [] });
         setResponse(res.data);
+        setSuccess(res.data.success);
       })
       .catch((error) => {
         setResponse(error.response.data);
       });
   };
   return (
-    <div>
       <section className="flex flex-col w-full justify-center items-center">
         <h3 className="text-black text-4xl">
           Post <span className="text-secondary">Testimonial</span>
@@ -79,7 +79,7 @@ const TestimonialForm = ({ setFormFlag }) => {
             <Input
               type="text"
               name="relation"
-              placeholder="Relation to Arpan"
+              placeholder="Relation to Arpan, eg. colleague, website visiter"
               value={formData["relation"] ? formData["relation"] : ""}
               onChange={onChangeHandler}
               required={false}
@@ -125,26 +125,29 @@ const TestimonialForm = ({ setFormFlag }) => {
               required
             ></textarea>
           </InputRow>
-          <div className="flex justify-center">
-            <Button styleProps="text-white">Post Testimonial</Button>
+          {response && (
+            <div className="mt-1 mb-2">
+              {response.success === false && (
+                <span className="text-red-700">
+                  Testimonial was not sent, fix the error and submit again.
+                </span>
+              )}
+            </div>
+          )}
+          <div className="flex flex-row justify-center gap-8">
+            <Button type="submit" styleProps="text-white">
+              Post Testimonial
+            </Button>
+            <Button
+              type="button"
+              onClick={() => setFormFlag(false)}
+              background="bg-red-400"
+            >
+              Cancel
+            </Button>
           </div>
         </form>
-        {response && (
-          <div className="my-2">
-            {response.success === false && (
-              <span className="text-red-700">
-                Testimonial was not sent, fix the error and submit again.
-              </span>
-            )}
-            {response.success === true && (
-              <span className="text-green-700">
-                Testimonial was successfully post, thanks for posting it.
-              </span>
-            )}
-          </div>
-        )}
       </section>
-    </div>
   );
 };
 

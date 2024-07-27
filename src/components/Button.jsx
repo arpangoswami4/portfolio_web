@@ -1,11 +1,17 @@
 import React from "react";
 
-const Button = ({ children, padding = "p-3", width = "w-48", styleProps="", onClick }) => {
+const Button = ({
+  children,
+  padding = "p-3",
+  width = "w-48",
+  styleProps = "",
+  background = "bg-secondary",
+  onClick,
+  ...options
+}) => {
+  const style = `rounded-full ${background} ${padding} ${width} ${styleProps} hover:text-secondary hover:bg-white hover:border-secondary hover:border-2`;
   return (
-    <button
-      className={`bg-secondary rounded-full ${padding} ${width} ${styleProps} hover:text-secondary hover:bg-white hover:border-secondary hover:border-2`}
-      onClick={onClick}
-    >
+    <button className={style} onClick={onClick} {...options}>
       {children}
     </button>
   );
