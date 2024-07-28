@@ -3,7 +3,7 @@ import React from "react";
 const WebsiteInfo = () => {
   return (
     <section>
-      <h3 className="text-3xl mb-2 text-black text-center mt-4">
+      <h3 className="text-3xl mb-2 text-black text-center mt-8">
         How I built this Website:
       </h3>
       <p className="mb-8 text-black  px-24 text-center">

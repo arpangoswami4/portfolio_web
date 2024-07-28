@@ -1,5 +1,4 @@
 import React from "react";
-import SkillIcon from "./SkillIcon";
 import Skills from "./Skills";
 import WebsiteInfo from "./WebsiteInfo";
 
