@@ -94,7 +94,7 @@ const ContactForm = () => {
             )}
             {response.success === true && (
               <span className="text-green-700">
-                Message was successfully sent, you receive a mail with the
+                Message was successfully sent, you will receive a mail with the
                 confirmation soon.
               </span>
             )}
