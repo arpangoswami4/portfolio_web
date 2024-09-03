@@ -28,8 +28,8 @@ const Introduction = () => {
           <h1 className="text-4xl">Arpan</h1>
           <h1 className="text-4xl">Goswami</h1>
           <p className="text-xl mt-4">
-            Experienced software developer with two and a half years of industry
-            experience with keen interest in Full Stack web devlopment.My
+            Experienced software developer with almost three years of industry
+            experience with keen interest in Full Stack web devlopment. My
             passion for programming, eagerness to learn and clear technical
             concepts make me good at problem solving and crafting
             forward-thinking solutions.

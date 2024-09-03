@@ -96,6 +96,9 @@ const ContactForm = () => {
               <span className="text-green-700">
                 Message was successfully sent, you will receive a mail with the
                 confirmation soon.
+                <br />
+                {process.env.NODE_ENV === "production" &&
+                  "However in production, the mail isn't sent as the backend server used(render), blocks smtp port(587) usage&#128546;."}
               </span>
             )}
           </div>
